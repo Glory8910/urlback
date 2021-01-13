@@ -4,6 +4,7 @@
   "description": "",
   "main": "url.js",
   "scripts": {
+    "start":"node url.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

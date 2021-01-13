@@ -159,4 +159,4 @@ app.get("/redirect/:shortner", async function (req, res) {
 
 })
 
-app.listen(3000, console.log("started..."))
+app.listen( process.env.PORT || 3000, console.log("started..."))
