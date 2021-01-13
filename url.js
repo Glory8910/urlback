@@ -14,22 +14,22 @@ const app = express()
 app.use(bodyparser.urlencoded({ extended: true }))
 app.use(bodyparser.json());
 
-var whitelist = ['https://urlshortnerapplication.herokuapp.com/',"169.254.254.71"]
-var corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  }
-}
-
+// var whitelist = ['https://urlshortnerapplication.herokuapp.com/',"169.254.254.71"]
 // var corsOptions = {
-//     orgin: "169.254.254.71",
-//     optionSuccessStatus: 200,
-//     methods: "GET,POST"
+//   origin: function (origin, callback) {
+//     if (whitelist.indexOf(origin) !== -1) {
+//       callback(null, true)
+//     } else {
+//       callback(new Error('Not allowed by CORS'))
+//     }
+//   }
 // }
+
+var corsOptions = {
+    orgin: "169.254.254.71",
+    optionSuccessStatus: 200,
+    methods: "GET,POST"
+}
 app.use(cors(corsOptions))
 
 const uri = "mongodb+srv://newurls:123@datas.knlcs.mongodb.net/list?retryWrites=true&w=majority"
