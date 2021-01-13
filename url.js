@@ -10,7 +10,7 @@ const { shoridurl } = require("./models/nano.js");
 
 var { nanoid } = require("nanoid");
 // var ID = nanoid(5);
- console.log(.env)
+
 const app = express()
 app.use(bodyparser.urlencoded({ extended: true }))
 app.use(bodyparser.json());
