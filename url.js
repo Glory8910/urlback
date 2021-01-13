@@ -25,7 +25,7 @@ var corsOptions = {
 }
 app.use(cors(corsOptions))
 
-const uri = "mongodb+srv://newurls:pas@datas.knlcs.mongodb.net/list?retryWrites=true&w=majority"
+const uri = "mongodb+srv://newurls:`${pas}`@datas.knlcs.mongodb.net/list?retryWrites=true&w=majority"
 
 app.get("/data", async (req, res) => {
 
