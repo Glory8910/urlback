@@ -4,6 +4,7 @@ let bodyparser = require('body-parser')
 let mongoose = require('mongoose');
 let urlExists = require('url-exists')
 var cors = require('cors')
+require('dotenv').config()
 
 const { shoridurl } = require("./models/nano.js");
 
@@ -14,25 +15,17 @@ const app = express()
 app.use(bodyparser.urlencoded({ extended: true }))
 app.use(bodyparser.json());
 
-// var whitelist = ['https://urlshortnerapplication.herokuapp.com/',"169.254.254.71"]
-// var corsOptions = {
-//   origin: function (origin, callback) {
-//     if (whitelist.indexOf(origin) !== -1) {
-//       callback(null, true)
-//     } else {
-//       callback(new Error('Not allowed by CORS'))
-//     }
-//   }
-// }
+let val=process.env.IP;
+let pas=process.env.PASS;
 
 var corsOptions = {
-    orgin: "169.254.254.71",
+    orgin:val,
     optionSuccessStatus: 200,
     methods: "GET,POST"
 }
 app.use(cors(corsOptions))
 
-const uri = "mongodb+srv://newurls:123@datas.knlcs.mongodb.net/list?retryWrites=true&w=majority"
+const uri = "mongodb+srv://newurls:pas@datas.knlcs.mongodb.net/list?retryWrites=true&w=majority"
 
 app.get("/data", async (req, res) => {
 
